@@ -1,138 +1,226 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
 * {
-    box-sizing: border-box;
-    margin: 0;
     padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
-    font-family: 'Nunito Sans', sans-serif;
-    font-size: 16px;
-    line-height: 1.5;
-    color: #13070c;
-    background-color: #eff9f0;
+    background-image: url(../images/header.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #403f40;
+    height: 100vh;
 }
 
-h1,h2 {
-    margin-bottom: 15px;
+/* Header section */
+.logo h1{
+    font-size: 40px;
+    font-weight: 800;
 }
 
-ul {
-    list-style-type: none;
+.logo h1 .smarter{
+    color: #000;
+    border-bottom: #403f40 solid 5px;
+    border-left: #403f40 solid 5px;
 }
 
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 30px;
+.logo h1 .money{
+    color: #000;
+    border-top: #403f40 solid 5px;
+    border-right: #403f40 solid 5px;
 }
 
-.navbar {
-    background-color: white;
-    height: 60px;
-}
-
-.navbar .logo {
-    font-size: x-large;
-}
-
-.navbar a {
-    color: #191716;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.navbar a:hover {
-    color: gray;
-}
-
-.navbar .container {
+#navbar .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 100%;
+    flex-wrap: wrap;
+    height: 100px;
+    width: 100%;
+    padding: 0 12.5vw;
 }
 
-.navbar ul {
+#navbar .menu-icon {
+    display: none;
+}
+
+#navbar ul {
+    list-style-type: none;
+    font-size: 20px;
     display: flex;
 }
 
-.navbar ul li {
-    padding-left: 30px;
+#navbar ul li {
+    margin-left: 50px;
 }
 
-.main {
-    min-height: 400px;
-    background-color: #9dc4b5;
+#navbar ul li a {
+    text-decoration: none;
+    color: #403f40;
 }
 
-.main img {
-    max-width: 80%;
-    height: auto;
+#navbar ul li a:hover {
+    background-color: #403f40;
+    color: #fff;
+    transition: 0.5s;
 }
 
-.login {
+/* main section */
+#main {
+    height: 88vh;
+    width: 50vw;
+}
+#main .container {
+    position: absolute;
+    top: 35vh;
+    left: 20vw;
+}
+.login h1 {
+    font-size: 40px;
     text-align: center;
+    font-weight: 700;
 }
-
-.login input {
+.username, .password {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+#username, #password {
+    width: 200px;
+    height: 4vh;
+    margin: 5px;
+    border: 1px solid #403f40;
+    opacity: 60%;
     border-radius: 5px;
 }
+#username::placeholder,
+#password::placeholder {
+    padding-left: 5px;
+}
+.btn {
+    width: 100px;
+    color: rgb(95, 92, 85);
+    font-size: 15px;
+    border-radius: 5px;
+    border: solid #403f40;
+    height: 30px;
+    margin: 5px auto 5px 30%;
+    background-color: white;
+}
+.btn:hover {
+    background-color: #8a888a;
+    border: white;
+    transition: 1s;
+}
+.login-footer {
+    text-align: center;
+    margin-top: 5px;
+}
+.login-footer a {
+    text-decoration: none;
+    text-decoration: underline;
+    color: #000;
+}
 
-.main button {
-    font-size: 16px;
-    padding: 5px;
+/* About Us section */
+#about-us {
+    height: 100vh;
+    width: 80%;
+}
+
+#about-us .container {
+    display: grid;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.card-1, .card-2, .card-3, .card-4 {
+    background-color: #000;
+    border: red solid 2px;
+    border-radius: 10px;
     margin: 10px;
+    height: 50vh;
+    width: 20vw;
 }
 
-.username, .password {
-    margin: 10px;
+/* Footer section */
+#footer {
+    height: 10vh;
+    width: 75%;
+    margin: 0 auto;
 }
 
-input {
-    width: 200px;
-    height: 25px;
-}
-
-.main .container {
+#footer .container {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     height: 100%;
 }
-
-::placeholder {
-    font-size: 16px;
+/* Responsiveness */
+@media (max-width: 1200px) {
+    #navbar .menu-icon {
+        display: block;
+        position: absolute;
+        font-size: 40px;
+        right: 12.5vw;
+        top: 15px;
+    }
+    #navbar .container {
+        padding-top: 15px;
+    }
+    .logo h1{
+        font-size: 35px;
+        font-weight: 800;
+    }
+    #navbar ul {
+        display: none;
+        font-weight: 500;
+        margin-top: 15px;
+        flex-direction: column;
+        width: 75vw;
+        background-color: rgb(154, 149, 149);
+        align-items: center;
+        text-align: center;
+        font-size: 18px;
+    }
+    .showmenu {
+        display: block !important; 
+    }
+    #navbar ul li {
+        padding: 5px;
+        margin-left: 0;
+    }
+    .login h1 {
+        font-size: 35px;
+        font-weight: 600;
+    }
+    .username, .password {
+        font-size: 17.5px;
+    }
+    #username, #password {
+        width: 180px;
+        height: 35px;
+        margin: 5px;
+        border: 2px solid black;
+        opacity: 60%;
+    }
+    #username::placeholder,
+    #password::placeholder {
+        font-size: 12.5px;
+    }
+    form {
+        margin-top: 3vh;
+        margin-left: -20px;
+    }
+}
+@media (max-width: 768px) {
+    
 }
 
-.section {
-    min-height: 400px;
-    background-color: #8aa8a1;
-}
 
-.descript {
-    font-weight: 600;
-}
 
-.section img {
-    max-width: 80%;
-    height: auto;
-}
 
-.section .container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
 
-.footer {
-    height: 60px;
-}
 
-.footer .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-}

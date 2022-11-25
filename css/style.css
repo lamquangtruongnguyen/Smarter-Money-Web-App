@@ -83,10 +83,7 @@ body {
     text-align: center;
     font-weight: 700;
 }
-.username, .password {
-    font-size: 20px;
-    margin-bottom: 10px;
-}
+
 #username, #password {
     width: 200px;
     height: 4vh;
@@ -218,9 +215,3 @@ body {
 @media (max-width: 768px) {
     
 }
-
-
-
-
-
-

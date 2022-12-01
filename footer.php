@@ -5,6 +5,6 @@
         <i class='bx bxs-copyright' class="copyright"></i>
     </div>
 </footer>
-<script src="js/script.js"></script>
+
 </body>
 </html>

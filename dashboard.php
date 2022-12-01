@@ -35,7 +35,7 @@
             <div class="nav">
                 <ul>
                     <li><a href="dashboard.php">Home</a></li>
-                    <li><a href="aboutus.php">About Us</a></li>
+                    <li><a href="about.php">About Us</a></li>
                     <li><a href="contact.php">Contact</a></li>
                     <li><a href="logout.php">Log out</a></li>
                 </ul>

@@ -27,7 +27,7 @@
                 <div class="nav">
                     <ul>
                         <li><a href="index.php">Home</a></li>
-                        <li><a href="dashboard.php">About Us</a></li>
+                        <li><a href="about.php">About Us</a></li>
                         <li><a href="signup.php">Sign Up</a></li>
                         <li><a href="contact.php">Contact</a></li>
                     </ul>

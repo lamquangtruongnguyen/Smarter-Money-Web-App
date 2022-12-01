@@ -75,7 +75,7 @@ if (isset($_POST['signup'])) {
                 <div class="nav">
                     <ul>
                         <li><a href="index.php">Home</a></li>
-                        <li><a href="aboutus.php">About Us</a></li>
+                        <li><a href="about.php">About Us</a></li>
                         <li><a href="index.php">Sign In</a></li>
                         <li><a href="contact.php">Contact</a></li>
                     </ul>

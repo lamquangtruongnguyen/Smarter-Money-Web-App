@@ -5,6 +5,9 @@ $budget = 0;
 $expense = 0;
 $result = 0;
 $account_id = 0;
+$most_spend = "";
+$start_date = "";
+$end_date = "";
 
 function getSummary($conn, $username) {
     echo '<div class="salary_budget">';
@@ -76,6 +79,8 @@ function getSummary($conn, $username) {
         $result = $budget - $expense;
         echo '<div class="expense_info"> <h5>Spendable Amount</h5>$ ' . $result . '</div>';
     } else {
+        $start_date = $result1['BUDGET_STARTDATE'];
+        $end_date = $result1['BUDGET_ENDDATE'];
         $sql1 = "SELECT SUM(TRANSACTION_AMOUNT) AS TOTAL, `TRANSACTION_TYPE` FROM `USER_TRANSACTION` AS U"
                 . " JOIN CATEGORY AS C"
                 . " ON U.CATEGORY_ID = C.CATEGORY_ID"
@@ -94,8 +99,44 @@ function getSummary($conn, $username) {
             $expense = -$result1[0]['TOTAL'];
         } else if (count($result1) == 1 && $result1[0]['TRANSACTION_TYPE'] == 'Debit') {
             $expense = $result1[0]['TOTAL'];
+            $query1 = $conn->prepare(
+                    "SELECT TOTAL, CATEGORY_NAME FROM (
+                    SELECT SUM(TRANSACTION_AMOUNT) AS TOTAL, `CATEGORY_NAME` FROM `USER_TRANSACTION` AS U
+                    JOIN CATEGORY AS C
+                    ON U.CATEGORY_ID = C.CATEGORY_ID
+                    JOIN ACCOUNT_INFO AS A
+                    ON C.ACCOUNT_ID = A.ACCOUNT_ID
+                    WHERE `ACCOUNT_USERNAME` = :username AND `TRANSACTION_TYPE` = 'Debit'
+                    AND `TRANSACTION_DATE` BETWEEN :start_date AND :end_date
+                    GROUP BY U.CATEGORY_ID
+                    ORDER BY TOTAL DESC) AS NEW LIMIT 1"
+            );
+            $query1->bindValue(':username', $username);
+            $query1->bindValue(':start_date', $start_date);
+            $query1->bindValue(':end_date', $end_date);
+            $query1->execute();
+            $result1 = $query1->fetch(PDO::FETCH_ASSOC);
+            echo '<div class="expense_info"> <h5>Most Spend</h5>' . $result1['CATEGORY_NAME'] . ': $' . $result1['TOTAL'] . '</div>';
         } else {
             $expense = -$result1[0]['TOTAL'] + $result1[1]['TOTAL'];
+            $query1 = $conn->prepare(
+                    "SELECT TOTAL, CATEGORY_NAME FROM (
+                    SELECT SUM(TRANSACTION_AMOUNT) AS TOTAL, `CATEGORY_NAME` FROM `USER_TRANSACTION` AS U
+                    JOIN CATEGORY AS C
+                    ON U.CATEGORY_ID = C.CATEGORY_ID
+                    JOIN ACCOUNT_INFO AS A
+                    ON C.ACCOUNT_ID = A.ACCOUNT_ID
+                    WHERE `ACCOUNT_USERNAME` = :username AND `TRANSACTION_TYPE` = 'Debit'
+                    AND `TRANSACTION_DATE` BETWEEN :start_date AND :end_date
+                    GROUP BY U.CATEGORY_ID
+                    ORDER BY TOTAL DESC) AS NEW LIMIT 1"
+            );
+            $query1->bindValue(':username', $username);
+            $query1->bindValue(':start_date', $start_date);
+            $query1->bindValue(':end_date', $end_date);
+            $query1->execute();
+            $result1 = $query1->fetch(PDO::FETCH_ASSOC);
+            echo '<div class="expense_info"> <h5>Most Spend</h5>' . $result1['CATEGORY_NAME'] . ': $' . $result1['TOTAL'] . '</div>';
         }
         echo '<div class="expense_info"> <h5>Monthly Expense</h5>$ ' . $expense . '</div>';
         $result = $budget - $expense;

@@ -154,7 +154,7 @@ if (strlen($_SESSION["userlogin"]) == 0) {
                             <div class="username" style="font-size: 20px">
                                 <div>
                                     <label for="salary_amount_new">Amount:
-                                        <input type="number" step="0.01" min="0" name="salary_amount_new" id="username" required>
+                                        <input style="margin-left: 28.58px" type="number" step="0.01" min="0" name="salary_amount_new" id="username" required>
                                     </label>
                                 </div>
                                 <div>
@@ -164,7 +164,7 @@ if (strlen($_SESSION["userlogin"]) == 0) {
                                 </div>
                                 <div>
                                     <label for="salary_end">End date:
-                                        <input type="date" name="salary_end_new" id="username" required>
+                                        <input style="margin-left: 15.71px" type="date" name="salary_end_new" id="username" required>
                                     </label>
                                 </div>
                                 <div>
@@ -204,7 +204,7 @@ if (strlen($_SESSION["userlogin"]) == 0) {
                             <div class="username" style="font-size: 20px">
                                 <div>
                                     <label for="budget_amount_new">Amount:
-                                        <input type="number" step="0.01" min="0" name="budget_amount_new" id="username" required>
+                                        <input style="margin-left: 28.58px" type="number" step="0.01" min="0" name="budget_amount_new" id="username" required>
                                     </label>
                                 </div>
                                 <div>
@@ -214,7 +214,7 @@ if (strlen($_SESSION["userlogin"]) == 0) {
                                 </div>
                                 <div>
                                     <label for="salary_end">End date:
-                                        <input type="date" name="budget_end_new" id="username" required>
+                                        <input style="margin-left: 15.71px" type="date" name="budget_end_new" id="username" required>
                                     </label>
                                 </div>
                                 <div>
@@ -345,4 +345,3 @@ if (strlen($_SESSION["userlogin"]) == 0) {
     </html>
     <?php
 }
-    

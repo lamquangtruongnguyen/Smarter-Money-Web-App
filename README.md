@@ -18,3 +18,5 @@ A basic money budgeting app to allow user keep up with their spendings, providin
   + Retrieve info
   + Updating info
   + Deleting mistaken transaction
+# URL: https://truongnguyen.me
+## Demo video: https://www.veed.io/view/691f84a5-9549-432f-8bff-bd81d78592f8?panel=share
